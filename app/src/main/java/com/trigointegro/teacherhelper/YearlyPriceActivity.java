@@ -107,11 +107,13 @@ public class YearlyPriceActivity extends AppCompatActivity {
 
         }
 
+
         Boolean[] arrIbtn = {true, true, true, true, true, false};
         View[] arrIv = {btnI1, btnI2, btnI3, btnI4, btnI5, btnI6};
         EditText[] arrIvet = {etI1, etI2, etI3, etI4, etI5, etI6};
         View[] arrIvll = {llI1, llI2, llI3, llI4, llI5, llI6};
         TextView[] arrItxt = {txtI1, txtI2, txtI3, txtI4, txtI5, txtI6};
+
 
         for (int i = 0; i < 5; i++) {
             int finalI = i;
@@ -226,6 +228,9 @@ public class YearlyPriceActivity extends AppCompatActivity {
         cbtn.setOnClickListener(v -> dialog.cancel());
 
     }
+
+
+
 
     @SuppressLint("WrongViewCast")
     private void init() {

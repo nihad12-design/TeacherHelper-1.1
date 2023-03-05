@@ -66,7 +66,7 @@ public class SalaryActivity extends AppCompatActivity {
             return;
         }
 
-        double[] StavkaArrAli = {607.2, 653.4, 686.4, 732.6, 785.4};
+        double[] StavkaArrAli = {607, 653, 686, 732, 785};
 
         if (0 <= a && a <= 3) {
             s = ((StavkaArrAli[0] / 18 * b * 1.15) + (StavkaArrAli[0] / 18 * c) + (StavkaArrAli[0] / 76.2 * k)) + cem;
@@ -91,7 +91,7 @@ public class SalaryActivity extends AppCompatActivity {
         int k = convert(etEvezicilik.getText().toString());
         double s = 0.0;
 
-        double[] StavkaArrOrta = {554.4, 587.4, 607.2, 646.8, 673.2};
+        double[] StavkaArrOrta = {554, 587, 604, 647, 699};
 
         if (0 <= a && a <= 3) {
             s = ((StavkaArrOrta[0] / 18 * b * 1.15) + (StavkaArrOrta[0] / 18 * c) + (StavkaArrOrta[0] / 76.2 * k)) + cem;
