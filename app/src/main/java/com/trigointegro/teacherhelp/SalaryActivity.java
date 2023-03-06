@@ -91,6 +91,11 @@ public class SalaryActivity extends AppCompatActivity {
         int k = convert(etEvezicilik.getText().toString());
         double s = 0.0;
 
+        if (b + c + k > 36) {
+            Toast.makeText(SalaryActivity.this, "Həftəlik dərs yükü 36 saatdan artıq ola bilməz", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         double[] StavkaArrOrta = {554, 587, 604, 647, 699};
 
         if (0 <= a && a <= 3) {

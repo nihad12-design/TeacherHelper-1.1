@@ -10,15 +10,16 @@ import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class YearlyPriceActivity extends AppCompatActivity {
 
     View llB1, llB2, llB3, llB4, llB5, llB6, llI1, llI2, llI3, llI4, llI5, llI6, llbsq, btn, cbtn;
     View btnB2, btnB3, btnB4, btnB5, btnB6, btnI1, btnI2, btnI3, btnI4, btnI5, btnI6;
     EditText etB1, etB2, etB3, etB4, etB5, etB6, etI1, etI2, etI3, etI4, etI5, etI6, etbsq1, etbsq2;
-    TextView txtB1, txtB2, txtB3, txtB4, txtB5, txtB6, txtI1, txtI2, txtI3, txtI4, txtI5, txtI6, txtbsq, txtBY, txtIY, txtIQ;
+    TextView txtB1, txtB2, txtB3, txtB4, txtB5, txtB6, txtI1, txtI2, txtI3, txtI4, txtI5, txtI6, txtbsq, txtBY, txtIY, txtIQ, txt2, txt19;
     CheckBox checkBox;
-    Dialog dialog;
+    Dialog dialog, alert;
 
     @SuppressLint("UseCompatLoadingForDrawables")
     @Override
@@ -211,14 +212,35 @@ public class YearlyPriceActivity extends AppCompatActivity {
         });
 
         btn.setOnClickListener(v -> {
-            dialog.show();
+            if (checkBox.isChecked()) {
+                txt2.setVisibility(View.GONE);
+                txt19.setVisibility(View.GONE);
+                double count = 0;
+                int say = 0;
+                for (int i = 0; i <= 5; i++) {
+                    if(arrBbtn[i]){
+                        if(convert(arrBvet[i].getText().toString()) < 0 || convert(arrBvet[i].getText().toString()) > 100){
+                            alert.cancel();
+                            dialog.cancel();
+                            Toast.makeText(YearlyPriceActivity.this, "KSQ balını düzgün daxil edin", Toast.LENGTH_SHORT).show();
+                        }
+                        if(convert(arrBvet[i].getText().toString()) == 0){
+
+                        }
+                        else{
+
+                        }
+                    }
+                }
+            } else {
+                txt2.setVisibility(View.VISIBLE);
+                txt19.setVisibility(View.VISIBLE);
+            }
         });
 
         cbtn.setOnClickListener(v -> dialog.cancel());
 
     }
-
-
 
 
     @SuppressLint("WrongViewCast")
@@ -299,10 +321,21 @@ public class YearlyPriceActivity extends AppCompatActivity {
         dialog.getWindow().getAttributes().windowAnimations = R.style.animation;
         //End Dialog
 
+        //start Alert
+        alert = new Dialog(YearlyPriceActivity.this);
+        alert.setContentView(R.layout.custom_dialog);
+        alert.getWindow().setBackgroundDrawable(getDrawable(R.drawable.dialog_background));
+        alert.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        alert.setCancelable(false);
+        alert.getWindow().getAttributes().windowAnimations = R.style.animation;
+        //End Alert
+
         cbtn = dialog.findViewById(R.id.btn);
         txtBY = dialog.findViewById(R.id.txtBY);
         txtIY = dialog.findViewById(R.id.txtIY);
         txtIQ = dialog.findViewById(R.id.txtIQ);
+        txt2 = dialog.findViewById(R.id.textView2);
+        txt19 = dialog.findViewById(R.id.textView19);
     }
 
     public int convert(String str) {

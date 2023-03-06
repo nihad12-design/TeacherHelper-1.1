@@ -28,7 +28,8 @@ public class HomeActivity extends AppCompatActivity {
         });
         info.setOnClickListener(v -> Toast.makeText(HomeActivity.this, "Emal Mərhələsindədir", Toast.LENGTH_SHORT).show());
         marktxt.setOnClickListener(v -> {
-            Toast.makeText(HomeActivity.this, "Emal Mərhələsindədir", Toast.LENGTH_SHORT).show();
+            Intent YearlyPriceActivity = new Intent(HomeActivity.this, YearlyPriceActivity.class);
+            startActivity(YearlyPriceActivity);
         });
     }
 
