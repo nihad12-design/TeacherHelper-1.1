@@ -250,8 +250,8 @@ public class YearlyPriceActivity extends AppCompatActivity {
                 txt19.setVisibility(View.GONE);
                 txtIY.setVisibility(View.GONE);
                 txtIQ.setVisibility(View.GONE);
-                for(int i = 0 ; i < say_1 ; i++){
-                    if(convert(arrBvet[i].getText().toString()) > 100 || convert(arrBvet[i].getText().toString()) < 0){
+                for (int i = 0; i < say_1; i++) {
+                    if (convert(arrBvet[i].getText().toString()) > 100 || convert(arrBvet[i].getText().toString()) < 0) {
                         Toast.makeText(YearlyPriceActivity.this, "Dəyərləri düzgün daxil edin", Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -300,14 +300,14 @@ public class YearlyPriceActivity extends AppCompatActivity {
                 txt19.setVisibility(View.VISIBLE);
                 txtIY.setVisibility(View.VISIBLE);
                 txtIQ.setVisibility(View.VISIBLE);
-                for(int i = 0 ; i < say_1 ; i++){
-                    if(convert(arrBvet[i].getText().toString()) > 100 || convert(arrBvet[i].getText().toString()) < 0){
+                for (int i = 0; i < say_1; i++) {
+                    if (convert(arrBvet[i].getText().toString()) > 100 || convert(arrBvet[i].getText().toString()) < 0) {
                         Toast.makeText(YearlyPriceActivity.this, "Dəyərləri düzgün daxil edin", Toast.LENGTH_LONG).show();
                         return;
                     }
                 }
-                for(int i = 0 ; i < say_2 ; i++){
-                    if(convert(arrIvet[i].getText().toString()) > 100 || convert(arrIvet[i].getText().toString()) < 0){
+                for (int i = 0; i < say_2; i++) {
+                    if (convert(arrIvet[i].getText().toString()) > 100 || convert(arrIvet[i].getText().toString()) < 0) {
                         Toast.makeText(YearlyPriceActivity.this, "Dəyərləri düzgün daxil edin", Toast.LENGTH_LONG).show();
                         return;
                     }
