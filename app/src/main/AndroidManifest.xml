@@ -12,7 +12,7 @@
         android:theme="@style/Theme.TeacherHelper"
         tools:targetApi="31">
         <activity
-            android:name=".HomeActivity"
+            android:name=".YearlyPriceActivity"
             android:exported="false" />
         <activity
             android:name=".SalaryActivity"
@@ -21,7 +21,7 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".YearlyPriceActivity"
+            android:name=".HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
