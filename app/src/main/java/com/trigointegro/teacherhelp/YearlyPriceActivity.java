@@ -12,12 +12,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
+
 public class YearlyPriceActivity extends AppCompatActivity {
 
     View llB1, llB2, llB3, llB4, llB5, llB6, llI1, llI2, llI3, llI4, llI5, llI6, llbsq, btn, cbtn;
-    View btnB2, btnB3, btnB4, btnB5, btnB6, btnI1, btnI2, btnI3, btnI4, btnI5, btnI6;
+    View btnB2, btnB3, btnB4, btnB5, btnB6, btnI1, btnI2, btnI3, btnI4, btnI5, btnI6, btnalertB, btnalertX;
     EditText etB1, etB2, etB3, etB4, etB5, etB6, etI1, etI2, etI3, etI4, etI5, etI6, etbsq1, etbsq2;
-    TextView txtB1, txtB2, txtB3, txtB4, txtB5, txtB6, txtI1, txtI2, txtI3, txtI4, txtI5, txtI6, txtbsq, txtBY, txtIY, txtIQ, txt2, txt19;
+    TextView txtB1, txtB2, txtB3, txtB4, txtB5, txtB6, txtI1, txtI2, txtI3, txtI4, txtI5, txtI6, txtbsq, txtBY, txtIY, txtIQ, txt2, txt19, txtalert;
     CheckBox checkBox;
     Dialog dialog, alert;
 
@@ -212,31 +216,88 @@ public class YearlyPriceActivity extends AppCompatActivity {
         });
 
         btn.setOnClickListener(v -> {
+            int say_1 = 0;
+            double count_1 = 0;
+            for (int i = 0; i <= 5; i++)
+                if (arrBbtn[i]) {
+                    say_1++;
+                    count_1 += convert(arrBvet[i].getText().toString());
+                }
+
+            int say_2 = 0;
+            double count_2 = 0;
+            for (int i = 0; i <= 5; i++)
+                if (arrIbtn[i]) {
+                    say_2++;
+                    count_2 += convert(arrIvet[i].getText().toString());
+                }
+
+            List<Integer> list_1 = new ArrayList<Integer>();
+            for (int i = 0; i < say_1; i++)
+                if (convert(arrBvet[i].getText().toString()) == 0) {
+                    list_1.add(i + 1);
+                }
+
+            List<Integer> list_2 = new ArrayList<Integer>();
+            for (int i = 0; i < say_2; i++)
+                if (convert(arrIvet[i].getText().toString()) == 0) {
+                    list_2.add(i + 1);
+                }
+
             if (checkBox.isChecked()) {
                 txt2.setVisibility(View.GONE);
                 txt19.setVisibility(View.GONE);
-                double count = 0;
-                int say = 0;
-                for (int i = 0; i <= 5; i++) {
-                    if(arrBbtn[i]){
-                        if(convert(arrBvet[i].getText().toString()) < 0 || convert(arrBvet[i].getText().toString()) > 100){
+                txtIY.setVisibility(View.GONE);
+                txtIQ.setVisibility(View.GONE);
+                if (list_1.size() == 0) {
+                    if (convert(etbsq1.getText().toString()) != 0) {
+                        txtBY.setText(Double.toString(((count_1 / say_1) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6)));
+                        dialog.show();
+                    } else {
+                        alert.show();
+                        txtalert.setText("BSQ qiymətinin 0 olduğundan əminsinizmi");
+                        double finalCount_1 = count_1;
+                        int finalSay_1 = say_1;
+                        btnalertB.setOnClickListener(v1 -> {
+                            txtBY.setText(Double.toString(((finalCount_1 / finalSay_1) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6)));
                             alert.cancel();
-                            dialog.cancel();
-                            Toast.makeText(YearlyPriceActivity.this, "KSQ balını düzgün daxil edin", Toast.LENGTH_SHORT).show();
-                        }
-                        if(convert(arrBvet[i].getText().toString()) == 0){
-
-                        }
-                        else{
-
-                        }
+                            dialog.show();
+                        });
+                    }
+                } else {
+                    if (convert(etbsq1.getText().toString()) != 0) {
+                        alert.show();
+                        txtalert.setText("KSQ qiymətinin 0 olduğundan əminsinizmi");
+                        double finalCount_1 = count_1;
+                        int finalSay_1 = say_1;
+                        btnalertB.setOnClickListener(v12 -> {
+                            txtBY.setText(Double.toString(((finalCount_1 / finalSay_1) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6)));
+                            alert.cancel();
+                            dialog.show();
+                        });
+                    }else{
+                        alert.show();
+                        txtalert.setText("Həm KSQ, həmdə BSQ qiymətinin 0 olduğundan əminsinizmi");
+                        double finalCount_ = count_1;
+                        int finalSay_ = say_1;
+                        btnalertB.setOnClickListener(v13 -> {
+                            txtBY.setText(Double.toString(((finalCount_ / finalSay_) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6)));
+                            alert.cancel();
+                            dialog.show();
+                        });
                     }
                 }
             } else {
+
                 txt2.setVisibility(View.VISIBLE);
                 txt19.setVisibility(View.VISIBLE);
+                txtIY.setVisibility(View.VISIBLE);
+                txtIQ.setVisibility(View.VISIBLE);
+                dialog.show();
             }
         });
+
+        btnalertX.setOnClickListener(v -> alert.cancel());
 
         cbtn.setOnClickListener(v -> dialog.cancel());
 
@@ -336,6 +397,10 @@ public class YearlyPriceActivity extends AppCompatActivity {
         txtIQ = dialog.findViewById(R.id.txtIQ);
         txt2 = dialog.findViewById(R.id.textView2);
         txt19 = dialog.findViewById(R.id.textView19);
+
+        txtalert = alert.findViewById(R.id.alert);
+        btnalertB = alert.findViewById(R.id.alertB);
+        btnalertX = alert.findViewById(R.id.alertX);
     }
 
     public int convert(String str) {
