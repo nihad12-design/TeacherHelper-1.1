@@ -244,11 +244,18 @@ public class YearlyPriceActivity extends AppCompatActivity {
                     list_2.add(i + 1);
                 }
 
+
             if (checkBox.isChecked()) {
                 txt2.setVisibility(View.GONE);
                 txt19.setVisibility(View.GONE);
                 txtIY.setVisibility(View.GONE);
                 txtIQ.setVisibility(View.GONE);
+                for(int i = 0 ; i < say_1 ; i++){
+                    if(convert(arrBvet[i].getText().toString()) > 100 || convert(arrBvet[i].getText().toString()) < 0){
+                        Toast.makeText(YearlyPriceActivity.this, "Dəyərləri düzgün daxil edin", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
                 if (list_1.size() == 0) {
                     if (convert(etbsq1.getText().toString()) != 0) {
                         txtBY.setText(Double.toString(((count_1 / say_1) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6)));
@@ -275,7 +282,7 @@ public class YearlyPriceActivity extends AppCompatActivity {
                             alert.cancel();
                             dialog.show();
                         });
-                    }else{
+                    } else {
                         alert.show();
                         txtalert.setText("Həm KSQ, həmdə BSQ qiymətinin 0 olduğundan əminsinizmi");
                         double finalCount_ = count_1;
@@ -293,7 +300,82 @@ public class YearlyPriceActivity extends AppCompatActivity {
                 txt19.setVisibility(View.VISIBLE);
                 txtIY.setVisibility(View.VISIBLE);
                 txtIQ.setVisibility(View.VISIBLE);
-                dialog.show();
+                for(int i = 0 ; i < say_1 ; i++){
+                    if(convert(arrBvet[i].getText().toString()) > 100 || convert(arrBvet[i].getText().toString()) < 0){
+                        Toast.makeText(YearlyPriceActivity.this, "Dəyərləri düzgün daxil edin", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+                for(int i = 0 ; i < say_2 ; i++){
+                    if(convert(arrIvet[i].getText().toString()) > 100 || convert(arrIvet[i].getText().toString()) < 0){
+                        Toast.makeText(YearlyPriceActivity.this, "Dəyərləri düzgün daxil edin", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+                }
+                if (list_1.size() == 0 || list_2.size() == 0) {
+                    if (convert(etbsq1.getText().toString()) != 0 && convert(etbsq2.getText().toString()) != 0) {
+                        double a = ((count_1 / say_1) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6);
+                        double b = ((count_2 / say_2) * 0.4) + (convert(etbsq2.getText().toString()) * 0.6);
+                        double c = (a + b) / 2;
+                        txtBY.setText(Double.toString(a));
+                        txtIY.setText(Double.toString(b));
+                        txtIQ.setText(Double.toString(c));
+                        dialog.show();
+                    } else {
+                        txtalert.setText("BSQ qiymətinin 0 olduğundan əminsinizmi");
+                        alert.show();
+                        double finalCount_2 = count_1;
+                        int finalSay_2 = say_1;
+                        double finalCount_3 = count_2;
+                        int finalSay_3 = say_2;
+                        btnalertB.setOnClickListener(v14 -> {
+                            double a = ((finalCount_2 / finalSay_2) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6);
+                            double b = ((finalCount_3 / finalSay_3) * 0.4) + (convert(etbsq2.getText().toString()) * 0.6);
+                            double c = (a + b) / 2;
+                            txtBY.setText(Double.toString(a));
+                            txtIY.setText(Double.toString(b));
+                            txtIQ.setText(Double.toString(c));
+                            alert.cancel();
+                            dialog.show();
+                        });
+                    }
+                } else {
+                    if (convert(etbsq1.getText().toString()) != 0 || convert(etbsq2.getText().toString()) != 0) {
+                        txtalert.setText("KSQ qiymətinin 0 olduğundan əminsinizmi");
+                        alert.show();
+                        double finalCount_4 = count_1;
+                        int finalSay_4 = say_1;
+                        double finalCount_5 = count_2;
+                        int finalSay_5 = say_2;
+                        btnalertB.setOnClickListener(v15 -> {
+                            double a = ((finalCount_4 / finalSay_4) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6);
+                            double b = ((finalCount_5 / finalSay_5) * 0.4) + (convert(etbsq2.getText().toString()) * 0.6);
+                            double c = (a + b) / 2;
+                            txtBY.setText(Double.toString(a));
+                            txtIY.setText(Double.toString(b));
+                            txtIQ.setText(Double.toString(c));
+                            alert.cancel();
+                            dialog.show();
+                        });
+                    } else {
+                        txtalert.setText("Həm KSQ, həmdə BSQ qiymətinin 0 olduğundan əminsinizmi");
+                        alert.show();
+                        double finalCount_6 = count_1;
+                        double finalCount_7 = count_2;
+                        int finalSay_6 = say_1;
+                        int finalSay_7 = say_2;
+                        btnalertB.setOnClickListener(v16 -> {
+                            double a = ((finalCount_6 / finalSay_6) * 0.4) + (convert(etbsq1.getText().toString()) * 0.6);
+                            double b = ((finalCount_7 / finalSay_7) * 0.4) + (convert(etbsq2.getText().toString()) * 0.6);
+                            double c = (a + b) / 2;
+                            txtBY.setText(Double.toString(a));
+                            txtIY.setText(Double.toString(b));
+                            txtIQ.setText(Double.toString(c));
+                            alert.cancel();
+                            dialog.show();
+                        });
+                    }
+                }
             }
         });
 

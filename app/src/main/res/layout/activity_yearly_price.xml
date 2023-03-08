@@ -147,6 +147,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:hint="0"
+                android:inputType="number"
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
@@ -178,7 +179,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -209,7 +211,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -240,7 +243,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -271,7 +275,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -303,7 +308,8 @@
                 android:layout_height="48dp"
                 android:textColor="@color/black"
                 android:visibility="gone"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -375,7 +381,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -456,7 +463,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -500,7 +508,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -544,7 +553,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -575,7 +585,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -606,7 +617,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -640,7 +652,8 @@
                 android:layout_height="48dp"
                 android:textColor="@color/black"
                 android:visibility="gone"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
@@ -709,7 +722,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:textColor="@color/black"
-                android:hint="0"/>
+                android:hint="0"
+                android:inputType="number"/>
         </LinearLayout>
     </LinearLayout>
 
