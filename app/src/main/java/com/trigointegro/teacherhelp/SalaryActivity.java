@@ -96,7 +96,7 @@ public class SalaryActivity extends AppCompatActivity {
             return;
         }
 
-        double[] StavkaArrOrta = {554, 587, 604, 647, 699};
+        double[] StavkaArrOrta = {554, 587, 607, 647, 699};
 
         if (0 <= a && a <= 3) {
             s = ((StavkaArrOrta[0] / 18 * b * 1.15) + (StavkaArrOrta[0] / 18 * c) + (StavkaArrOrta[0] / 76.2 * k)) + cem;
