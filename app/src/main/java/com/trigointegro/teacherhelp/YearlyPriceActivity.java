@@ -230,7 +230,7 @@ public class YearlyPriceActivity extends AppCompatActivity {
                     arrIvet[i].setVisibility(View.VISIBLE);
                     arrIvet[i].setText("");
                     etbsq1.setText("");
-                    etbsq2.setText("");
+                    //etbsq2.setText("");
 
 
                     if (i % 2 == 0) {
