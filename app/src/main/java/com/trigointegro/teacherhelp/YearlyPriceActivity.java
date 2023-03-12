@@ -25,7 +25,7 @@ public class YearlyPriceActivity extends AppCompatActivity {
     CheckBox checkBox;
     Dialog dialog, alert;
 
-    @SuppressLint("UseCompatLoadingForDrawables")
+    @SuppressLint({"UseCompatLoadingForDrawables", "SetTextI18n"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

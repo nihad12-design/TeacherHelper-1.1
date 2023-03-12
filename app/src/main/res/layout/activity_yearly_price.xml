@@ -821,7 +821,7 @@
         app:layout_constraintBottom_toBottomOf="@id/cb_bottom_guideline"
         app:layout_constraintLeft_toLeftOf="@id/cb_left_guideline"
         app:layout_constraintRight_toRightOf="@id/cb_right_guideline"
-        android:text="Sadəcə birinci yarımil"
+        android:text="Sadəcə ikinci yarımil"
         android:textAlignment="center"
         android:autoSizeTextType="uniform"
         android:textColor="#000000"
